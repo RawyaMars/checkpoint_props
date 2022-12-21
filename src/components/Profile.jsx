@@ -1,5 +1,6 @@
 import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn } from 'mdb-react-ui-kit';
+import PropTypes from 'prop-types';
 
 const Profile = props => {
     console.log(props)
@@ -43,5 +44,15 @@ const Profile = props => {
     </div>
   )
 }
-
+Profile.defaultProps = {
+  name: 'Rawya Mars',
+    profession: 'Senior Journalist',
+    url: "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp",
+    followers:54,
+    articles:4
+}
+Profile.propTypes = {
+  name: PropTypes.string
+};
+console.log(Profile.defaultProps)
 export default Profile
