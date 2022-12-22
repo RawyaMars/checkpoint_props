@@ -1,9 +1,10 @@
 import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn } from 'mdb-react-ui-kit';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 
-const Profile = props => {
-    console.log(props)
+const Profile = (props) => {
+   console.log(props.handleAlert)
   return (
     <div className="vh-100" style={{ backgroundColor: '#9de2ff'}}>
       <MDBContainer>
@@ -15,14 +16,14 @@ const Profile = props => {
                   <div className="flex-shrink-0">
                     <MDBCardImage
                       style={{ width: '180px', borderRadius: '10px', margin: '50px'}}
-                      src={props.data.url}
+                      src={props.url}
                       alt='Generic placeholder image'
                       fluid />
                   </div>
                   <div className="flex-grow-1 ms-3" style={{ backgroundColor: '#efefef' }}>
                     <MDBCardTitle>{props.data.name}</MDBCardTitle>
                     <MDBCardText>{props.data.profession}</MDBCardText>
-
+<Button onClick={()=>props.handleAlert(props.data.name)}>alert</Button>
                     <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
                       style={{ backgroundColor: '#efefef' }}>
                       <div>
@@ -43,6 +44,7 @@ const Profile = props => {
       </MDBContainer>
     </div>
   )
+  
 }
 Profile.defaultProps = {
   name: 'Rawya Mars',
@@ -50,9 +52,8 @@ Profile.defaultProps = {
     url: "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp",
     followers:54,
     articles:4
-}
+};
 Profile.propTypes = {
   name: PropTypes.string
-};
-console.log(Profile.defaultProps)
+}
 export default Profile
